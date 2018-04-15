@@ -5,6 +5,7 @@
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+  margin-top: 20px;
 }
 
 .App-header {
@@ -22,3 +23,48 @@
   font-size: large;
 }
 
+
+/* Admin page */
+
+.adminLoginForm {
+  margin: 50px auto;
+  max-width: 450px;
+  padding: 0 10px;
+}
+.textInput {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.textInput__logo {
+  border: 1px solid #979797;
+  border-right: none;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.textInput input {
+  padding: 10px;
+  border: 1px solid #979797;
+  color: black;
+  width: 100%;
+}
+
+.loginBtn {
+  background-color: #4DA1FF;
+  border: none;
+  width: 100%;
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  border-radius: 2px;
+}
