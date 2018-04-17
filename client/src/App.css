@@ -32,9 +32,11 @@
   padding: 0 10px;
 }
 .textInput {
+  position: relative;
   display: flex;
   justify-content: center;
-  margin: 10px 0;
+  margin: 15px 0;
+  /* margin-bottom: 35px; */
 }
 
 input:focus,
@@ -67,4 +69,13 @@ button:focus {
   color: white;
   cursor: pointer;
   border-radius: 2px;
+}
+
+.formError {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: red;
+  font-size: 12px;
 }
