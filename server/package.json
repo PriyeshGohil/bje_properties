@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/app.js --exec 'npm run lint && node'",
+    "startDev": "nodemon src/app.js",
     "lint": "./node_modules/.bin/eslint **/*.js",
     "createUsers" : "nodemon scripts/createUsers.js"
   },
