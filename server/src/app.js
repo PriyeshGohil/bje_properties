@@ -1,25 +1,27 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const morgan = require('morgan')
-const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const User = require('./models/user');
 
-const app = express()
-app.use(morgan('combined'))
-app.use(bodyParser.json())
-app.use(cors())
+const app = express();
+app.use(morgan('combined'));
+app.use(bodyParser.json());
+app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/bje')
+mongoose.connect('mongodb://localhost:27017/bje').then(
+  () => { console.log('connected to database'); },
+  err => { console.log('database error: ' + err); }
+);
 
 app.get('/status', (req, res) => {
-  res.send({msg: 'hello world'})
-})
+  res.send({msg: 'hello world'});
+});
 
 // TODO server side validation
 app.post('/signin', (req, res) => {
-  
   if(!req.body.username || !req.body.password) {
     return res.status(500);
   }
@@ -43,9 +45,9 @@ app.post('/signin', (req, res) => {
 
       res.status(200).json({msg: 'user logged In!'});
       console.log('bcryptRes: ', bcryptRes);
-    })
-  })
+    });
+  });
 });
 
 // TODO move server creation code to different file.
-app.listen(process.env.PORT || 8081)
+app.listen(process.env.PORT || 8081);

@@ -1,17 +1,16 @@
-const mongoose = require('mongoose')
-const User = require('../src/models/user')
-const bcrypt = require('bcrypt')
+const mongoose = require('mongoose');
+const User = require('../src/models/user');
+const bcrypt = require('bcrypt');
 
 // connecting to mongodb
 mongoose.connect('mongodb://localhost:27017/bje').then(
-  () => { console.log('connected to db')},
-  err => {console.log('db connection error: ', err)}
-)
+  () => { console.log('connected to db'); },
+  err => { console.log('db connection error: ', err); }
+);
 
-// only creates a users if it's username doesn't already exists 
+// only creates a users if it's username doesn't already exists
 function createUser(username, pwd) {
-  User.findOne({name: username}, function(err,userObject) {
-    
+  User.findOne({name: username}, function(err, userObject) {    
     if(err) {
       return console.log('err:', err);
     }
